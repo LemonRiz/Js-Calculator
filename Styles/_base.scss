@@ -2,4 +2,24 @@
 
 * {
   background-color: $color-primary;
+  color: white;
+  border-radius: 25%;
+}
+
+.inputBox {
+  size: 100vw;
+}
+
+button {
+  background-color: $color-button;
+  font-size: 2rem;
+}
+
+.greyBut {
+  background-color: $color-lightgray;
+  color: black;
+}
+
+.orangeBut {
+  background-color: $color-orangebut;
 }
