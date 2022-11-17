@@ -1,16 +1,12 @@
 * {
   background-color: black;
   color: white;
-  border-radius: 25%;
-}
-
-.inputBox {
-  size: 100vw;
 }
 
 button {
   background-color: #333333;
   font-size: 2rem;
+  border-radius: 25%;
 }
 
 .greyBut {
@@ -104,4 +100,14 @@ button {
 
 #calc__equal {
   grid-area: 5/4/6/5;
+}
+
+.inputOperate {
+  display: flex;
+  justify-content: center;
+}
+
+.ansBox {
+  margin: 1rem;
+  font-size: 2rem;
 }/*# sourceMappingURL=styles.css.map */
