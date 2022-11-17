@@ -26,15 +26,15 @@ button {
   grid-row-gap: 10px;
 }
 
-#calc_clear {
+#calc__clear {
   grid-area: 1/1/2/2;
 }
 
-#calc_posneg {
+#calc__posneg {
   grid-area: 1/2/2/3;
 }
 
-#calc_percent {
+#calc__percent {
   grid-area: 1/3/2/4;
 }
 
