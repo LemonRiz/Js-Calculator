@@ -1,5 +1,5 @@
-@use "./variables" as *;
+@use "_variables.scss" as *;
 
 * {
-    background-color: $color-primary;
+  background-color: $color-primary;
 }
