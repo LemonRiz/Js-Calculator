@@ -19,23 +19,38 @@ const numButtons = Array.from(document.querySelectorAll(".numbers"));
 // const bdiv = document.querySelector("#calc__div");
 // const bsub = document.querySelector("#calc__sub");
 // const badd = document.querySelector("#calc__add");
-// const bequal = document.querySelector("#calc__equal");
 
 const operatorButtons = Array.from(document.querySelectorAll(".operator"));
 
 const bclear = document.querySelector("#calc__clear");
 const bdec = document.querySelector("#calc__dec");
+const bequal = document.querySelector("#calc__equal");
+
+let num1 = "";
+let num2 = "";
+let operator = "";
 
 console.log(numButtons);
 console.log(operatorButtons);
 
+//adds number to display
 numButtons.forEach((nums) => {
   nums.addEventListener("click", () => {
-    return (display.innerHTML += nums.innerHTML);
+    display.innerHTML += nums.innerHTML;
+    num1 += nums.innerHTML;
+    console.log(num1);
   });
 });
 
+// adds operator
+operatorButtons.forEach((oprtr) => {
+  oprtr.addEventListener("click", () => {
+    operator += operatorButtons.innerHTML;
+    display.innerHTML += oprtr.innerHTML;
+  });
+});
+
+//clears display
 bclear.addEventListener("click", () => {
   return (display.innerHTML = "");
 });
-
