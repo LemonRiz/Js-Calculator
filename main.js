@@ -21,16 +21,21 @@ const numButtons = Array.from(document.querySelectorAll(".numbers"));
 // const badd = document.querySelector("#calc__add");
 // const bequal = document.querySelector("#calc__equal");
 
-const operandButtons = Array.from(document.querySelectorAll(".operator"));
+const operatorButtons = Array.from(document.querySelectorAll(".operator"));
 
 const bclear = document.querySelector("#calc__clear");
 const bdec = document.querySelector("#calc__dec");
 
 console.log(numButtons);
-console.log(operandButtons);
+console.log(operatorButtons);
 
 numButtons.forEach((nums) => {
   nums.addEventListener("click", () => {
     return (display.innerHTML += nums.innerHTML);
   });
 });
+
+bclear.addEventListener("click", () => {
+  return (display.innerHTML = "");
+});
+
