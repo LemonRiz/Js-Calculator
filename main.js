@@ -37,6 +37,7 @@ console.log(operatorButtons);
 numButtons.forEach((nums) => {
   nums.addEventListener("click", () => {
     display.innerHTML += nums.innerHTML;
+    //appends number clicked to end of num1 string
     num1 += nums.innerHTML;
     console.log(num1);
   });
@@ -49,6 +50,11 @@ operatorButtons.forEach((oprtr) => {
     display.innerHTML += oprtr.innerHTML;
   });
 });
+
+// performs maths
+numButtons.forEach((moreNums) => {
+  if (calculation.includes("+", "-", "÷", "*")) {}
+})
 
 //clears display
 bclear.addEventListener("click", () => {
