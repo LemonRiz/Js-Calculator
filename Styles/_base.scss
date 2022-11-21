@@ -5,6 +5,16 @@
   color: white;
 }
 
+.buttons {
+  :hover {
+    cursor: pointer;
+  }
+  :active{
+    box-shadow: 0 1.5px rgb(255, 255, 255);
+    transform: translateY(0.5px);
+  }
+}
+
 button {
   background-color: $color-button;
   font-size: 2rem;
@@ -14,8 +24,14 @@ button {
 .greyBut {
   background-color: $color-lightgray;
   color: black;
+  :hover {
+    cursor: pointer;
+  }
 }
 
 .orangeBut {
   background-color: $color-orangebut;
+  :hover {
+    cursor: pointer;
+  }
 }

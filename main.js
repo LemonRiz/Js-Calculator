@@ -51,10 +51,10 @@ operatorButtons.forEach((oprtr) => {
   });
 });
 
-// performs maths
-numButtons.forEach((moreNums) => {
-  if (calculation.includes("+", "-", "÷", "*")) {}
-})
+// // performs maths
+// numButtons.forEach((moreNums) => {
+//   if (calculation.includes("+", "-", "÷", "*")) {}
+// })
 
 //clears display
 bclear.addEventListener("click", () => {
