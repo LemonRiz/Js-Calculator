@@ -25,6 +25,9 @@ const operatorButtons = Array.from(document.querySelectorAll(".operator"));
 const bclear = document.querySelector("#calc__clear");
 const bdec = document.querySelector("#calc__dec");
 const bequal = document.querySelector("#calc__equal");
+const bposneg = document.querySelector("#calc__posneg");
+
+const answerBox= document.querySelector(".ansBox");
 
 let num1 = "";
 let num2 = "";
@@ -60,3 +63,6 @@ operatorButtons.forEach((oprtr) => {
 bclear.addEventListener("click", () => {
   return (display.innerHTML = "");
 });
+
+
+answerBox.value = "Answer goes here!"
