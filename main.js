@@ -64,7 +64,7 @@ bClear.addEventListener("click", () => {
 //decimal button but cannot add a second decimal. It's ok if it starts with a decimal
 // use parseFloat to return .52354 as 0.52354
 bDec.addEventListener("click", () => {
-  if (display.innerHTML.includes("0.")) {
+  if (display.innerHTML.includes(".")) {
   } else {
     display.innerHTML = `${display.innerHTML}` + ".";
   }
