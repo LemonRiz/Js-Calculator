@@ -1,3 +1,5 @@
+// DOM elements
+
 const display = document.querySelector(".calculation");
 
 // const b1 = document.querySelector("#calc__1");
@@ -22,12 +24,12 @@ const numButtons = Array.from(document.querySelectorAll(".numbers"));
 
 const operatorButtons = Array.from(document.querySelectorAll(".operator"));
 
-const bclear = document.querySelector("#calc__clear");
-const bdec = document.querySelector("#calc__dec");
-const bequal = document.querySelector("#calc__equal");
-const bposneg = document.querySelector("#calc__posneg");
+const bClear = document.querySelector("#calc__clear");
+const bDec = document.querySelector("#calc__dec");
+const bEqual = document.querySelector("#calc__equal");
+const bPosneg = document.querySelector("#calc__posneg");
 
-const answerBox= document.querySelector(".ansBox");
+const answerBox = document.querySelector(".ansBox");
 
 let num1 = "";
 let num2 = "";
@@ -54,15 +56,18 @@ operatorButtons.forEach((oprtr) => {
   });
 });
 
-// // performs maths
-// numButtons.forEach((moreNums) => {
-//   if (calculation.includes("+", "-", "÷", "*")) {}
-// })
-
 //clears display
-bclear.addEventListener("click", () => {
+bClear.addEventListener("click", () => {
   return (display.innerHTML = "");
 });
 
+//decimal button but cannot add a second decimal. It's ok if it starts with a decimal
+// use parseFloat to return .52354 as 0.52354
+bDec.addEventListener("click", () => {
+  if (display.innerHTML.includes("0.")) {
+  } else {
+    display.innerHTML = `${display.innerHTML}` + ".";
+  }
+});
 
-answerBox.value = "Answer goes here!"
+answerBox.value = "Answer goes here!";
