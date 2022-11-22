@@ -105,3 +105,7 @@ bDec.addEventListener("click", () => {
     display.innerHTML = `${display.innerHTML}` + ".";
   }
 });
+
+bPosneg.addEventListener("click", () => {
+    (answerBox.value * -1);
+});
