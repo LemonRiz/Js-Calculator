@@ -1,6 +1,6 @@
 // DOM elements
 
-const display = document.querySelector(".calculation");
+const display = document.querySelector(".display");
 
 // const b1 = document.querySelector("#calc__1");
 // const b2 = document.querySelector("#calc__2");
@@ -43,31 +43,63 @@ numButtons.forEach((nums) => {
   nums.addEventListener("click", () => {
     display.innerHTML += nums.innerHTML;
     //appends number clicked to end of num1 string
-    num1 += nums.innerHTML;
-    console.log(num1);
+    //Check if operator has value
+    if (operator == "") {
+      num1 += nums.innerHTML;
+    } else {
+      num2 += nums.innerHTML;
+    }
+    //If  no operator pressed, add to num1
+    //else, with operator, add to num1
   });
 });
 
 // adds operator
 operatorButtons.forEach((oprtr) => {
   oprtr.addEventListener("click", () => {
-    operator += operatorButtons.innerHTML;
-    display.innerHTML += oprtr.innerHTML;
+    // if operator is first, don't display
+    if (num1 != "") {
+      operator = oprtr.innerHTML;
+      display.innerHTML += oprtr.innerHTML;
+    }
   });
 });
 
-//clears display
+//clears display + variables
 bClear.addEventListener("click", () => {
+  num1 = "";
+  num2 = "";
+  operator = "";
+  answerBox.value = "";
   return (display.innerHTML = "");
 });
 
+bEqual.addEventListener("click", () => {
+  console.log(parseFloat(num1), operator, parseFloat(num2));
+  let result;
+  const firstNo = parseFloat(num1);
+  const secondNo = parseFloat(num2);
+  switch (operator) {
+    case `+`:
+      result = firstNo + secondNo;
+      break;
+    case `-`:
+      result = firstNo - secondNo;
+      break;
+    case `*`:
+      result = firstNo * secondNo;
+      break;
+    case `÷`:
+      result = firstNo / secondNo;
+  }
+  answerBox.value = result;
+});
+
 //decimal button but cannot add a second decimal. It's ok if it starts with a decimal
-// use parseFloat to return .52354 as 0.52354
+//just use parseFloat to return ie. .52354 as 0.52354
 bDec.addEventListener("click", () => {
   if (display.innerHTML.includes(".")) {
   } else {
     display.innerHTML = `${display.innerHTML}` + ".";
   }
 });
-
-answerBox.value = "Answer goes here!";
