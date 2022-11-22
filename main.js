@@ -45,12 +45,12 @@ numButtons.forEach((nums) => {
     //appends number clicked to end of num1 string
     //Check if operator has value
     if (operator == "") {
-      num1 += nums.innerHTML;
+      num1 += parseFloat(nums.innerHTML);
     } else {
-      num2 += nums.innerHTML;
+      num2 += parseFloat(nums.innerHTML);
     }
     //If  no operator pressed, add to num1
-    //else, with operator, add to num1
+    //else, with operator, add to num1);
   });
 });
 
@@ -92,7 +92,7 @@ bEqual.addEventListener("click", () => {
     case `÷`:
       result = firstNo / secondNo;
   }
-  answerBox.value = result;
+  answerBox.value = parseFloat(result);
 });
 
 //decimal button but cannot add a second decimal. It's ok if it starts with a decimal
