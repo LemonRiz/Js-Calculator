@@ -70,7 +70,6 @@ bClear.addEventListener("click", () => {
   num1 = "";
   num2 = "";
   operator = "";
-  answerBox.value = "";
   return (display.innerHTML = "");
 });
 
@@ -91,8 +90,11 @@ bEqual.addEventListener("click", () => {
       break;
     case `÷`:
       result = firstNo / secondNo;
+    // case '%':
+    //   result = firstNo % secondNo
   }
   answerBox.value = parseFloat(result);
+  console.log(result);
 });
 
 //decimal button but cannot add a second decimal. It's ok if it starts with a decimal
