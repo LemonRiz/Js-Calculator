@@ -30,6 +30,8 @@ const bEqual = document.querySelector("#calc__equal");
 const bPosneg = document.querySelector("#calc__posneg");
 
 const answerBox = document.querySelector(".ansBox");
+const history = document.querySelector(".history");
+
 let ans = "";
 
 let num1 = "";
@@ -58,8 +60,12 @@ numButtons.forEach((nums) => {
 // adds operator
 operatorButtons.forEach((oprtr) => {
   oprtr.addEventListener("click", () => {
+    console.log(operator.innerHTML);
     // if operator is first, don't display
-    if (num1 != "") {
+    if (operator === "-" && num1 == "") {
+      display.innerHTML += operator;
+      num1 = display.innerHTML;
+    } else if (num1 != "") {
       operator = oprtr.innerHTML;
       display.innerHTML += oprtr.innerHTML;
     }
@@ -75,34 +81,47 @@ bClear.addEventListener("click", () => {
   return (display.innerHTML = "");
 });
 
+//perform mathematical operations
 bEqual.addEventListener("click", () => {
-  console.log(parseFloat(num1), operator, parseFloat(num2));
-  let result;
+  let result = 0;
   const firstNo = parseFloat(num1);
   const secondNo = parseFloat(num2);
-  switch (operator) {
-    case `+`:
-      result = firstNo + secondNo;
-      break;
-    case `-`:
-      result = firstNo - secondNo;
-      break;
-    case `*`:
-      result = firstNo * secondNo;
-      break;
-    case `÷`:
-      result = firstNo / secondNo;
-    case "%":
-      if (isNaN(secondNo)) {
-        result = firstNo / 100;
-      } else {
-        result = (firstNo / secondNo) * 100;
-      }
+  if (num1.includes("..") || num2.includes("..")) {
+    alert("Too many decimal points!");
+  } else {
+    console.log(parseFloat(num1), operator, parseFloat(num2));
+
+    switch (operator) {
+      case `+`:
+        result = firstNo + secondNo;
+        break;
+      case `-`:
+        result = firstNo - secondNo;
+        break;
+      case `*`:
+        result = firstNo * secondNo;
+        break;
+      case `÷`:
+        if (secondNo === 0) {
+          alert("Cannot divide by zero!");
+        } else {
+          result = firstNo / secondNo;
+        }
+        break;
+      case "%":
+        if (isNaN(secondNo)) {
+          result = firstNo / 100;
+        } else {
+          result = (firstNo / secondNo) * 100;
+        }
+        break;
+    }
   }
   answerBox.value = parseFloat(result);
   console.log(result);
   ans = parseFloat(result);
   console.log(ans);
+  history.innerHTML += `${num1} ${operator} ${num2} <br>`;
   num1 = "";
   num2 = "";
   operator = "";
@@ -112,7 +131,11 @@ bEqual.addEventListener("click", () => {
 //decimal button but cannot add a second decimal. It's ok if it starts with a decimal
 //just use parseFloat to return ie. .52354 as 0.52354
 bDec.addEventListener("click", () => {
-  if (display.innerHTML.includes(".")) {
+  if (num1.includes(".") && num2.includes(".")) {
+    alert("No more decimals, please!");
+  } else if (num2 == "") {
+    display.innerHTML = `${display.innerHTML}` + ".";
+    num1 += ".";
   } else {
     display.innerHTML = `${display.innerHTML}` + ".";
     num2 += ".";
