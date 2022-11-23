@@ -61,7 +61,7 @@ numButtons.forEach((nums) => {
 operatorButtons.forEach((oprtr) => {
   oprtr.addEventListener("click", () => {
     console.log(operator.innerHTML);
-    // if operator is first, don't display
+    // if operator is first, don't add to display
     if (operator === "-" && num1 == "") {
       display.innerHTML += operator;
       num1 = display.innerHTML;
@@ -86,9 +86,11 @@ bEqual.addEventListener("click", () => {
   let result = 0;
   const firstNo = parseFloat(num1);
   const secondNo = parseFloat(num2);
-  if (num1.includes("..") || num2.includes("..")) {
-    alert("Too many decimal points!");
-  } else {
+  // THIS BREAKS WITH POSNEG 
+  // if (num1.includes("..") || num2.includes("..")) {
+  //   alert("Too many decimal points!");
+  // } else 
+  {
     console.log(parseFloat(num1), operator, parseFloat(num2));
 
     switch (operator) {
@@ -143,5 +145,12 @@ bDec.addEventListener("click", () => {
 });
 
 bPosneg.addEventListener("click", () => {
-  answerBox.value = answerBox.value * -1;
+  num1 = parseFloat(display.innerHTML);
+  if (display.innerHTML.includes("-")) {
+    num1 = Math.abs(num1);
+    display.innerHTML = num1;
+  } else {
+    num1 = -Math.abs(num1);
+    display.innerHTML = num1;
+  }
 });
