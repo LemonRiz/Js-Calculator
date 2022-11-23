@@ -30,6 +30,7 @@ const bEqual = document.querySelector("#calc__equal");
 const bPosneg = document.querySelector("#calc__posneg");
 
 const answerBox = document.querySelector(".ansBox");
+let ans = "";
 
 let num1 = "";
 let num2 = "";
@@ -70,6 +71,7 @@ bClear.addEventListener("click", () => {
   num1 = "";
   num2 = "";
   operator = "";
+  answerBox.value = "";
   return (display.innerHTML = "");
 });
 
@@ -99,6 +101,12 @@ bEqual.addEventListener("click", () => {
   }
   answerBox.value = parseFloat(result);
   console.log(result);
+  ans = parseFloat(result);
+  console.log(ans);
+  num1 = "";
+  num2 = "";
+  operator = "";
+  display.innerHTML = "";
 });
 
 //decimal button but cannot add a second decimal. It's ok if it starts with a decimal
