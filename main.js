@@ -90,8 +90,12 @@ bEqual.addEventListener("click", () => {
       break;
     case `÷`:
       result = firstNo / secondNo;
-    // case '%':
-    //   result = firstNo % secondNo
+    case "%":
+      if (isNaN(secondNo)) {
+        result = firstNo / 100;
+      } else {
+        result = (firstNo / secondNo) * 100;
+      }
   }
   answerBox.value = parseFloat(result);
   console.log(result);
@@ -107,5 +111,5 @@ bDec.addEventListener("click", () => {
 });
 
 bPosneg.addEventListener("click", () => {
-    (answerBox.value * -1);
+  answerBox.value * -1;
 });
