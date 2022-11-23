@@ -115,9 +115,10 @@ bDec.addEventListener("click", () => {
   if (display.innerHTML.includes(".")) {
   } else {
     display.innerHTML = `${display.innerHTML}` + ".";
+    num2 += ".";
   }
 });
 
 bPosneg.addEventListener("click", () => {
-  answerBox.value * -1;
+  answerBox.value = answerBox.value * -1;
 });
