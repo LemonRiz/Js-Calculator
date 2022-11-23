@@ -121,16 +121,18 @@ bEqual.addEventListener("click", () => {
   }
   answerBox.value = parseFloat(result);
   console.log(result);
+  // storing an answer for later, only helpful for history atm
   ans = parseFloat(result);
   console.log(ans);
-  history.innerHTML += `${num1} ${operator} ${num2} <br>`;
+  history.innerHTML += `${num1} ${operator} ${num2} = ${ans} <br>`;
   num1 = "";
   num2 = "";
   operator = "";
   display.innerHTML = "";
 });
 
-//decimal button but cannot add a second decimal. It's ok if it starts with a decimal
+//decimal button. It's ok if it starts with a decimal
+//if num2 starts with a decimal it does not work
 //just use parseFloat to return ie. .52354 as 0.52354
 bDec.addEventListener("click", () => {
   if (num1.includes(".") && num2.includes(".")) {
@@ -144,6 +146,7 @@ bDec.addEventListener("click", () => {
   }
 });
 
+// Can only change first num to negative
 bPosneg.addEventListener("click", () => {
   num1 = parseFloat(display.innerHTML);
   if (display.innerHTML.includes("-")) {
