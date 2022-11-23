@@ -32,11 +32,10 @@ const bPosneg = document.querySelector("#calc__posneg");
 const answerBox = document.querySelector(".ansBox");
 const history = document.querySelector(".history");
 
-let ans = "";
-
 let num1 = "";
 let num2 = "";
 let operator = "";
+let ans = "";
 
 console.log(numButtons);
 console.log(operatorButtons);
@@ -86,10 +85,10 @@ bEqual.addEventListener("click", () => {
   let result = 0;
   const firstNo = parseFloat(num1);
   const secondNo = parseFloat(num2);
-  // THIS BREAKS WITH POSNEG 
+  // THIS BREAKS WITH POSNEG
   // if (num1.includes("..") || num2.includes("..")) {
   //   alert("Too many decimal points!");
-  // } else 
+  // } else
   {
     console.log(parseFloat(num1), operator, parseFloat(num2));
 
@@ -124,6 +123,16 @@ bEqual.addEventListener("click", () => {
   // storing an answer for later, only helpful for history atm
   ans = parseFloat(result);
   console.log(ans);
+//  //silly.
+//   if (ans === 69) {
+//     alert("nice.");
+//   }
+//   if (ans === 420) {
+//     alert("👀");
+//   }
+//   if (ans === 1337) {
+//     alert("H4X0R");
+//   }
   history.innerHTML += `${num1} ${operator} ${num2} = ${ans} <br>`;
   num1 = "";
   num2 = "";
@@ -131,7 +140,7 @@ bEqual.addEventListener("click", () => {
   display.innerHTML = "";
 });
 
-//decimal button. It's ok if it starts with a decimal
+//decimal button. It's ok if num1 starts with a decimal
 //if num2 starts with a decimal it does not work
 //just use parseFloat to return ie. .52354 as 0.52354
 bDec.addEventListener("click", () => {
