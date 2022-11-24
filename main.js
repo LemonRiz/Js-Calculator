@@ -156,7 +156,6 @@ bDec.addEventListener("click", () => {
 });
 
 // Can only change first num to negative
-// makes calculator act strange if the operator is ("-")
 bPosneg.addEventListener("click", () => {
   num1 = parseFloat(display.innerHTML);
   if (display.innerHTML.includes("-")) {
