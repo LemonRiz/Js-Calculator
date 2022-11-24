@@ -43,3 +43,9 @@ button {
 .display {
   border: 2px red solid;
 }
+
+@media only screen and (min-width: $desktop-breakpoint) {
+  button {
+    font-size: 4rem;
+  }
+}
