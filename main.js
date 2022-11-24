@@ -123,21 +123,21 @@ bEqual.addEventListener("click", () => {
   // storing an answer for later, only helpful for history atm
   ans = parseFloat(result);
   console.log(ans);
-//  //silly.
-//   if (ans === 69) {
-//     alert("nice.");
-//   }
-//   if (ans === 420) {
-//     alert("👀");
-//   }
-//   if (ans === 1337) {
-//     alert("H4X0R");
-//   }
+  //  //silly.
+  //   if (ans === 69) {
+  //     alert("nice.");
+  //   }
+  //   if (ans === 420) {
+  //     alert("👀");
+  //   }
+  //   if (ans === 1337) {
+  //     alert("H4X0R");
+  //   }
   history.innerHTML += `${num1} ${operator} ${num2} = ${ans} <br>`;
-  num1 = "";
+  num1 = `${ans}`;
   num2 = "";
   operator = "";
-  display.innerHTML = "";
+  display.innerHTML = `${ans}`;
 });
 
 //decimal button. It's ok if num1 starts with a decimal
